@@ -21,5 +21,7 @@ namespace ApiJuioCesar.Data
         public DbSet<ApiJuioCesar.Modelo.TNUMEROSMAYORES> TNUMEROSMAYORES { get; set; }
 
         public DbSet<ApiJuioCesar.Modelo.TPALABRASREPETIDAS> TPALABRASREPETIDAS { get; set; }
+
+        public DbSet<ApiJuioCesar.Modelo.TINVERTIDAS> TINVERTIDAS { get; set; }
     }
 }
