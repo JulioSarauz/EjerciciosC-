@@ -33,6 +33,9 @@ namespace ApiJuioCesar
                     options.UseSqlServer(Configuration.GetConnectionString("ApiJuioCesarContext")));
             
             services.AddControllers().AddNewtonsoftJson();
+
+            services.AddDbContext<ApiJulioCesarContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("ApiJulioCesarContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

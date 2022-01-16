@@ -77,14 +77,25 @@ namespace ApiJuioCesar.Controllers
         // POST: api/TPRIMOS
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        [HttpPost]
-        public async Task<ActionResult<TPRIMOS>> PostTPRIMOS(TPRIMOS tPRIMOS)
-        {
-            _context.TPRIMOS.Add(tPRIMOS);
-            await _context.SaveChangesAsync();
+        [HttpPost("{numero}")]
+        //public async Task<ActionResult<TPRIMOS>> PostTPRIMOS(TPRIMOS tPRIMOS)
+        //{
+        //    _context.TPRIMOS.Add(tPRIMOS);
+        //    await _context.SaveChangesAsync();
+        //    return CreatedAtAction("GetTPRIMOS", new { id = tPRIMOS.id_primo }, tPRIMOS);
+        //}
 
+        public async Task<ActionResult<TPRIMOS>> PostTPRIMOS(int numero)
+        {
+            TPRIMOS tPRIMOS = new TPRIMOS();
+            _context.TPRIMOS.Add(tPRIMOS.obtenerInformacion(numero));
+            await _context.SaveChangesAsync();
             return CreatedAtAction("GetTPRIMOS", new { id = tPRIMOS.id_primo }, tPRIMOS);
         }
+
+
+
+
 
         // DELETE: api/TPRIMOS/5
         [HttpDelete("{id}")]
